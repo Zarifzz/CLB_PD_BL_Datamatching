@@ -1,7 +1,7 @@
 # README
 
 ## Setup
-For setup and running the script please see `SETUP.md` [here](SETUP.MD)
+For setup and running the script please see `SETUP.md` [here](SETUP.md)
 
 
 ## Project Overview
