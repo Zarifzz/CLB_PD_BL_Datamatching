@@ -34,7 +34,7 @@ Make sure these Columns are present in PD Data:
 - `LicenseNumber`
 - `Site Location`
 
-### File Hierachy:
+### File Hierachy Model:
 
 ```
 <Your File Name>
