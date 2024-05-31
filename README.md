@@ -1,7 +1,9 @@
 # README
 
+To see a example template of PD data and BL data see [TEMPLATE.md](TEMPLATE.md)
+
 ## Setup
-For setup and running the script please see `SETUP.md` [here](SETUP.md)
+For setup and running the script please see [`SETUP.md](SETUP.md)
 
 
 ## Project Overview
