@@ -1,7 +1,12 @@
 import pandas as pd
-from fuzzywuzzy import fuzz
-from fuzzywuzzy import process
+# from fuzzywuzzy import fuzz
+# from fuzzywuzzy import process
+import time
 import numpy 
+
+from rapidfuzz import process, fuzz, utils
+
+timestart = time.time()
 
 # Path to BL and PD datasets 
 Business_csv_path = "Excel_File\\Business_Data.csv"
@@ -49,7 +54,7 @@ matching_df = fuzzy_merge(Business_df, PD_df, 'Site Location_lower', 'StreetAddr
 matchesOnly_df = matching_df[matching_df['matches'] != '']
 
 # Add 'DateTimeReported', 'StreetAddress_lower', 'StreetAddress',  'Statute', 'UCR', 'UCR Desc', 'Zip', 'Area', 'Beat' Columns to the merged DF. 
-SelectedRows_PDData_df = PD_df[['DateTimeReported', 'StreetAddress_lower', 'StreetAddress',  'Statute', 'UCR', 'UCR Desc', 'Zip', 'Area', 'Beat']]
+SelectedRows_PDData_df = PD_df[['DateTimeReported', 'StreetAddress_lower', 'StreetAddress',  'Statute', 'UCR', 'UCR Desc']]
 merged_df = pd.merge(matchesOnly_df, SelectedRows_PDData_df, left_on='matches', right_on='StreetAddress_lower', how='left')
 
 # Add a Error Column such that if the first part of of the two Addresses dont match it shows Error: True for that row
@@ -64,6 +69,13 @@ merged_df.drop(['FirstPart1', 'FirstPart2'], axis=1, inplace=True)
 merged_df.drop('StreetAddress_lower', axis=1, inplace=True)
 merged_df.to_csv('Excel_File\\output.csv', index=False)
 # prints # of cols and rows 
+
+timeend = time.time()
+
+
+
+print("Finished!!!")
+print("Timer:", timeend - timestart, "Seconds")
 print("Shape: ", merged_df.shape)
 
 '''
