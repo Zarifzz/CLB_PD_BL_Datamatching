@@ -54,8 +54,8 @@ matching_df = fuzzy_merge(Business_df, PD_df, 'Site Location_lower', 'StreetAddr
 matchesOnly_df = matching_df[matching_df['matches'] != '']
 
 # Add 'DateTimeReported', 'StreetAddress_lower', 'StreetAddress',  'Statute', 'UCR', 'UCR Desc', 'Zip', 'Area', 'Beat' Columns to the merged DF. 
-SelectedRows_PDData_df = PD_df[['DateTimeReported', 'StreetAddress_lower', 'StreetAddress',  'Statute', 'UCR', 'UCR Desc']]
-merged_df = pd.merge(matchesOnly_df, SelectedRows_PDData_df, left_on='matches', right_on='StreetAddress_lower', how='left')
+
+merged_df = pd.merge(matchesOnly_df, PD_df, left_on='matches', right_on='StreetAddress_lower', how='left')
 
 # Add a Error Column such that if the first part of of the two Addresses dont match it shows Error: True for that row
 merged_df['FirstPart1'] = merged_df['Site Location_lower'].apply(extract_first_part)
