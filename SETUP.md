@@ -16,8 +16,8 @@ Add more env vars, click New instead of Edit this time, and add these variables:
 - `PIP_NO_CACHE_DIR` = `false`
 - `PIPENV_INSTALL_TIMEOUT` = `9999`
 - `NO_PROXY` = `localhost,127.0.0.1`
-- `HTTP_PROXY` = `http://aspnet:aspnet@proxy4.ci.long-beach.ca.us:8080/`
-- `HTTPS_PROXY` = `http://aspnet:aspnet@proxy4.ci.long-beach.ca.us:8080/`
+- `HTTP_PROXY` = ``
+- `HTTPS_PROXY` = ``
 
 put `PIP_DEFAULT_TIMEOUT` as variable name and `1000` as value and click OK, Do the same for all ther other variables. 
 
